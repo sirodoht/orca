@@ -1,0 +1,23 @@
+{
+  "name": "vidya",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun scripts/dev.ts",
+    "start": "bun src/server.ts",
+    "migrate": "bun src/migrate.ts",
+    "build:frontend": "bun run --cwd packages/frontend build",
+    "typecheck": "bunx tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "hono": "^4.12.25"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
