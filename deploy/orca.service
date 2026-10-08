@@ -1,0 +1,21 @@
+[Unit]
+Description=Orca prediction markets
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=deploy
+Group=www-data
+WorkingDirectory=/var/www/orca
+EnvironmentFile=/var/www/orca/.env
+Environment=PATH=/home/deploy/.bun/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/home/deploy/.bun/bin/bun run start
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

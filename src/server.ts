@@ -958,8 +958,9 @@ app.get("*", serveStatic({ path: "./packages/frontend/dist/index.html" }));
 
 export function startServer() {
   const port = Number(Bun.env.PORT ?? 3000);
-  const server = Bun.serve({ port, fetch: app.fetch });
-  console.log(`Server running on http://localhost:${server.port}`);
+  const hostname = Bun.env.HOST ?? "127.0.0.1";
+  const server = Bun.serve({ hostname, port, fetch: app.fetch });
+  console.log(`Server running on http://${hostname}:${server.port}`);
   return server;
 }
 
