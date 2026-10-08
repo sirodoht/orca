@@ -111,10 +111,11 @@ the deployment; a migration failure leaves the service stopped for inspection.
 For initial routing, point the `orca.01z.io` A record to Brick, install
 `deploy/orca.caddy` at `/etc/caddy/orca.caddy` **before pushing any Brick import**,
 then add its import to `Caddyfile.j2` in the sibling Brick repository. A push to
-Brick's `main` automatically runs `.github/workflows/deploy.yaml`, applies its
-Ansible playbook, and restarts Caddy. An import whose snippet is missing prevents
-Caddy from starting. Validate the complete candidate configuration before pushing
-the Brick change, and verify Caddy afterward. For manual configuration changes,
+Brick's `main` automatically runs `.github/workflows/deploy.yaml` and applies its
+Ansible playbook. Caddy validates the candidate before replacing the live file,
+then reloads only when that file changes. A missing snippet fails validation and
+leaves the existing configuration running. Verify Caddy after the Brick workflow.
+For manual configuration changes,
 validate with `caddy validate --config /etc/caddy/Caddyfile` before reloading Caddy.
 Routine Orca deployments do not change routing.
 
