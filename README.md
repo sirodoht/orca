@@ -1,4 +1,4 @@
-# vidya-predictions
+# orca
 
 ## Setup
 
@@ -26,14 +26,18 @@ bun dev
 
 Environment variables:
 
-| Variable | Purpose |
-|----------|---------|
 | Variable | Default | Purpose |
 |----------|---------|---------|
-| `DATABASE_URL` | `sqlite://vidya.db` | SQLite database path |
+| `DATABASE_URL` | `sqlite://orca.db` | SQLite database path |
 | `JWT_SECRET` | Dev-only fallback | Secret used to sign auth tokens. Set this in production. |
 | `PORT` | `3000` | HTTP server port |
 | `CORS_ORIGIN` | `http://localhost:5173` | Allowed frontend dev origin |
+| `NODE_ENV` | unset | Use `production` when deploying. `bun dev` sets `development`, which enables dev verification. |
+| `APP_URL` | `http://localhost:5173` outside production | Public app origin for email verification links. Required in production and must use HTTPS. |
+| `POSTMARK_SERVER_TOKEN` | none | Postmark server API token. Keep this in the environment or an ignored `.env` file. |
+| `POSTMARK_FROM` | `noreply@01z.io` | Sender address authorized in Postmark. |
+
+Run migrations before starting after an update (`bun run migrate`). Migration 003 adds the single-use email verification tokens table.
 
 ## Architecture
 
@@ -42,7 +46,28 @@ Environment variables:
 
 ## Auth
 
-- Users sign up and log in with email and password.
+- Users sign up and log in with email, username, and password.
 - Passwords are hashed with `Bun.password`.
 - The API returns a JWT, and the frontend stores it in `localStorage`.
 - Authenticated requests use `Authorization: Bearer <token>`.
+- Email verification gates market creation, trading, and comments. Signed-in users can request an email from the verification banner, then open the link and confirm their email address.
+- Emails use the [Postmark HTTP API](https://postmarkapp.com/developer/api/email-api) directly, without an SDK. Configure `POSTMARK_SERVER_TOKEN`, `POSTMARK_FROM`, and the public `APP_URL`. The sender must be authorized in Postmark.
+- Verification links expire after one hour, are single-use, and only their hashes are stored. Resends are limited to one per minute per account and replace the previous link.
+- The dev verification endpoint is available only with `NODE_ENV=development`; its button is excluded from production frontend builds.
+
+## Product Surface
+
+- Public users can browse markets, comments, profiles, and leaderboards.
+- Verified users can create binary Yes/No markets, trade through the LMSR-style AMM, comment, resolve their own closed markets, and reset their play-money balance when they have no open positions.
+- Markets expire and refund after 7 unresolved days past close when public market endpoints, resolution, or account reset are accessed. Late resolution requests cannot bypass expiry.
+- Trading, resolution, refunds, and account resets use synchronous write transactions. Realized sale profit/loss and settlement profit/loss both count toward the profit leaderboard.
+
+## Checks
+
+```bash
+bun test
+bun run typecheck
+bun run build:frontend
+```
+
+Tests use an in-memory database and mocked Postmark responses; they do not send email or touch the local app database.

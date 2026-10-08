@@ -11,6 +11,7 @@ const commands = [
 
 const children = commands.map(({ name, command }) => {
   const child = Bun.spawn(command, {
+    env: { ...Bun.env, NODE_ENV: "development" },
     stdout: "pipe",
     stderr: "pipe",
   });

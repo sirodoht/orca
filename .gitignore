@@ -33,8 +33,10 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 
 # Finder (MacOS) folder config
 .DS_Store
-fastminds.db
 test.db
 
 # Database
-vidya.db
+orca.db
+orca.db-journal
+orca.db-wal
+orca.db-shm

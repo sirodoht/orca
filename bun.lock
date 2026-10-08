@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "vidya",
+      "name": "orca",
       "dependencies": {
         "hono": "^4.12.25",
       },
@@ -13,7 +13,7 @@
       },
     },
     "packages/frontend": {
-      "name": "@vidya-predictions/frontend",
+      "name": "@orca/frontend",
       "dependencies": {
         "@sveltejs/vite-plugin-svelte": "^6.2.1",
         "svelte": "^5.45.6",
@@ -148,7 +148,7 @@
 
     "@types/trusted-types": ["@types/trusted-types@2.0.7", "", {}, "sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw=="],
 
-    "@vidya-predictions/frontend": ["@vidya-predictions/frontend@workspace:packages/frontend"],
+    "@orca/frontend": ["@orca/frontend@workspace:packages/frontend"],
 
     "acorn": ["acorn@8.17.0", "", { "bin": { "acorn": "bin/acorn" } }, "sha512-xRQbDb9BnwDafYNn6Vwl839DYVjqXYb1XVGtWAZ1kcDc6iwAL4hg3B1dZlRiuENFeO2H53gFG3in621AdERVAg=="],
 

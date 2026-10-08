@@ -16,7 +16,7 @@ type Db = {
 };
 
 function databasePath() {
-  const url = Bun.env.DATABASE_URL ?? "sqlite://vidya.db";
+  const url = Bun.env.DATABASE_URL ?? "sqlite://orca.db";
   if (url.startsWith("sqlite://")) {
     return url.slice("sqlite://".length);
   }

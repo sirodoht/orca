@@ -1,5 +1,5 @@
 {
-  "name": "@vidya-predictions/frontend",
+  "name": "@orca/frontend",
   "private": true,
   "type": "module",
   "scripts": {
