@@ -73,6 +73,23 @@ bun run build:frontend
 
 Tests use an in-memory database and mocked Postmark responses; they do not send email or touch the local app database.
 
+## Initial markets
+
+The ten markets researched on 8 October 2026 are in
+`scripts/data/markets-2026-10-08.json`, including closing times, sources and
+resolution rules. To add them to the configured database under an existing
+verified account, back up the database first, then run:
+
+```bash
+bun scripts/seed-markets.ts theo --dry-run
+bun scripts/seed-markets.ts theo
+```
+
+Insertion is atomic. Identical existing markets are skipped; conflicting
+definitions abort the entire batch. Existing markets and trades are preserved.
+The named creator must resolve each market within seven days after it closes.
+This is an operator command, not part of routine deployment.
+
 ## Brick deployment
 
 Production runs at https://orca.01z.io from `/var/www/orca` as `deploy:www-data`,

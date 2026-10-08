@@ -1,0 +1,82 @@
+[
+  {
+    "question": "Will the Bank of England raise Bank Rate on 5 November 2026?",
+    "category": "politics",
+    "closeAt": "2026-11-05T11:55:00.000Z",
+    "resolutionCriteria": "Yes if the scheduled 5 November 2026 MPC announcement sets Bank Rate above the rate in effect immediately before that announcement. An unchanged or lower rate resolves No. Use the announced rate, even if its effective date is later.",
+    "sourceOfTruth": "Bank of England MPC announcement and minutes: https://www.bankofengland.co.uk/monetary-policy/upcoming-mpc-dates",
+    "fallbackRule": "Use the Bank of England's official announcement PDF if the webpage is unavailable. If no decision for this scheduled meeting is published by 11 November 2026 at 12:00 UTC, leave unresolved for automatic expiry and refunds."
+  },
+  {
+    "question": "Will the Federal Reserve cut rates at its October 2026 meeting?",
+    "category": "politics",
+    "closeAt": "2026-10-28T17:55:00.000Z",
+    "resolutionCriteria": "Yes if the FOMC statement for the scheduled 27-28 October 2026 meeting lowers the upper bound of the federal funds target range relative to the upper bound immediately before the announcement. An unchanged or higher upper bound resolves No. An earlier emergency cut does not by itself count.",
+    "sourceOfTruth": "Federal Reserve October 2026 FOMC statement and implementation note: https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm",
+    "fallbackRule": "Use the official Federal Reserve statement PDF if the HTML page is unavailable. If this meeting's decision is not available by 3 November 2026 at 18:00 UTC, leave unresolved for automatic expiry and refunds."
+  },
+  {
+    "question": "Will UK inflation reach at least 3.5% in September 2026?",
+    "category": "politics",
+    "closeAt": "2026-10-21T05:55:00.000Z",
+    "resolutionCriteria": "Yes if the first ONS release for September 2026 reports the UK all-items Consumer Prices Index (CPI) 12-month inflation rate at 3.5% or higher. A reported rate below 3.5% resolves No. Use headline CPI, not CPIH, RPI, core CPI or monthly inflation. Ignore revisions after the initial release.",
+    "sourceOfTruth": "ONS Consumer price inflation, UK: September 2026: https://www.ons.gov.uk/releases/consumerpriceinflationukseptember2026",
+    "fallbackRule": "Use the same release's ONS downloadable tables or PDF. If the September headline CPI rate is still unpublished by 27 October 2026 at 06:00 UTC, leave unresolved for automatic expiry and refunds."
+  },
+  {
+    "question": "Will AP call a Democratic US House majority by 9 November 2026?",
+    "category": "politics",
+    "closeAt": "2026-11-03T22:00:00.000Z",
+    "resolutionCriteria": "Yes if Associated Press projects Democratic control of the US House of Representatives from the 2026 elections by 9 November 2026 at 21:00 UTC. This normally requires 218 Democratic winners. No if AP has not made that projection by the deadline, including if control is still undecided. This concerns AP's projection by a fixed deadline, not final certification or eventual control. A projection retracted before the deadline does not count.",
+    "sourceOfTruth": "Associated Press election results and race calls: https://apnews.com/hub/election-2026 ; methodology: https://www.ap.org/elections/our-role-in-the-u-s-elections/how-we-declare-winners/",
+    "fallbackRule": "If AP's website is unavailable, use a timestamped syndicated AP report explicitly attributing the chamber-control call to AP. Do not substitute another outlet's projection. If AP's status at the deadline cannot be established, leave unresolved for automatic expiry and refunds. Resolve after the deadline and before 10 November 2026 at 22:00 UTC."
+  },
+  {
+    "question": "Will Bun release version 1.5 or later before 2027?",
+    "category": "tech",
+    "closeAt": "2027-01-01T00:00:00.000Z",
+    "resolutionCriteria": "Yes if oven-sh/bun publishes a stable GitHub release with version 1.5.0 or greater between 8 October 2026 and 31 December 2026 at 23:59:59 UTC. A stable 2.0.0 or later also counts. Drafts, canary builds, nightly builds, alpha, beta and release-candidate versions do not count. Use the GitHub release published_at timestamp. No if no qualifying release exists by the deadline.",
+    "sourceOfTruth": "Official Bun releases: https://github.com/oven-sh/bun/releases ; machine-readable metadata: https://api.github.com/repos/oven-sh/bun/releases",
+    "fallbackRule": "Use an official dated Bun release announcement at https://bun.sh/blog if GitHub is unavailable. A roadmap or planned release is insufficient. If publication date or stable-release status cannot be established by 6 January 2027 at 12:00 UTC, leave unresolved for automatic expiry and refunds."
+  },
+  {
+    "question": "Will Linux reach 5% of worldwide desktop usage in November 2026?",
+    "category": "tech",
+    "closeAt": "2026-12-01T00:00:00.000Z",
+    "resolutionCriteria": "Yes if Statcounter Global Stats reports Linux at 5.00% or more for November 2026, selecting Operating System, Desktop, Worldwide and Monthly. Below 5.00% resolves No. Do not add Chrome OS, Android or Unknown to Linux. Use the November value available at 12:00 UTC on 3 December 2026 and preserve a screenshot or CSV; ignore subsequent revisions.",
+    "sourceOfTruth": "Statcounter Global Stats, desktop operating systems worldwide: https://gs.statcounter.com/os-market-share/desktop/worldwide/#monthly-202611-202611-bar",
+    "fallbackRule": "Use Statcounter's CSV export for the identical month, platform and geography if the chart fails. If November data is not available at the specified observation time, leave unresolved for automatic expiry and refunds; do not substitute another analytics provider."
+  },
+  {
+    "question": "Will NASA launch Artemis III before July 2027?",
+    "category": "tech",
+    "closeAt": "2027-07-01T00:00:00.000Z",
+    "resolutionCriteria": "Yes if the crewed mission NASA officially designates Artemis III lifts off by 30 June 2027 at 23:59:59 UTC. Actual liftoff counts even if the mission later aborts or fails; a scrub, static-fire test, uncrewed precursor or launch-date announcement does not count. This is a launch question, not a lunar-landing question. No if the deadline passes without a qualifying launch, including cancellation or postponement.",
+    "sourceOfTruth": "NASA Artemis III mission page and official mission updates: https://www.nasa.gov/mission/artemis-iii/ ; https://www.nasa.gov/artemis-iii-news-and-updates/",
+    "fallbackRule": "Use NASA's official launch broadcast or an ESA mission report identifying Artemis III and its actual liftoff time. If the evidence remains contradictory by 6 July 2027 at 12:00 UTC, leave unresolved for automatic expiry and refunds."
+  },
+  {
+    "question": "Will COP31 adopt a decision calling for a fossil-fuel phase-out?",
+    "category": "climate",
+    "closeAt": "2026-11-20T06:00:00.000Z",
+    "resolutionCriteria": "Yes if, by 25 November 2026 at 18:00 UTC, COP31 or CMA8 formally adopts an English-language decision that calls for, commits to or urges a phase-out of fossil fuels as a whole. 'Phase out', 'phase-out' and 'phasing out' count. Text limited to coal, subsidies or unabated fossil fuels does not count, nor does 'transitioning away' alone. Drafts, speeches, voluntary coalitions and presidency statements do not count. No if no qualifying decision has been adopted by the deadline, including if talks continue beyond it.",
+    "sourceOfTruth": "UNFCCC COP31 adopted decisions and official conference documents: https://unfccc.int/cop31 ; https://unfccc.int/documents",
+    "fallbackRule": "Use the official UNFCCC plenary recording only when it identifies the adopted document and that document's exact text is available. If adoption or the authoritative wording cannot be verified, leave unresolved for automatic expiry and refunds. Resolve after the deadline and before 27 November 2026 at 06:00 UTC."
+  },
+  {
+    "question": "Will October 2026 be wetter than average across the UK?",
+    "category": "climate",
+    "closeAt": "2026-11-01T00:00:00.000Z",
+    "resolutionCriteria": "Yes if the Met Office's first published UK-wide October 2026 rainfall figure is greater than 100% of the October 1991-2020 average. Exactly 100% or less resolves No. Use the whole United Kingdom and total monthly rainfall, not England alone, an individual station or the number of rainy days. Provisional monthly figures count; ignore later revisions.",
+    "sourceOfTruth": "Met Office UK monthly weather and climate summaries: https://www.metoffice.gov.uk/research/climate/maps-and-data/summaries",
+    "fallbackRule": "Use an official Met Office monthly climate statistics table or dated end-of-month report quoting the same UK rainfall anomaly and baseline. If no comparable figure is published by 6 November 2026 at 12:00 UTC, leave unresolved for automatic expiry and refunds."
+  },
+  {
+    "question": "Will 10 different accounts trade on Orca before November?",
+    "category": "community",
+    "closeAt": "2026-11-01T00:00:00.000Z",
+    "resolutionCriteria": "Yes if at least 10 distinct user accounts on the public app at https://orca.01z.io have completed at least one buy or sell between 8 October 2026 at 00:00 UTC and 1 November 2026 at 00:00 UTC, excluding the latter instant. Each account counts once, including the creator's account; previews and failed trades do not count. Count accounts, not unique humans. Local-development activity does not count. No if fewer than 10 accounts qualify. Balance resets do not erase historical qualifying trades.",
+    "sourceOfTruth": "The production Orca trade ledger, cross-checked against public market trade histories at https://orca.01z.io and https://orca.01z.io/api/markets . Both the local and online copies of this market refer to production activity only.",
+    "fallbackRule": "Use a timestamped production database backup if public history is incomplete. If the qualifying account count cannot be established by 6 November 2026 at 12:00 UTC, leave unresolved for automatic expiry and refunds."
+  }
+]
