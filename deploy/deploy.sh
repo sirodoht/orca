@@ -4,7 +4,7 @@ set -Eeuo pipefail
 # Run locally after pushing main. Initial provisioning is documented in README.md.
 ssh root@01z.io bash -s <<'REMOTE'
 set -Eeuo pipefail
-export PATH="/home/deploy/.bun/bin:/usr/local/bin:/usr/bin:/bin"
+export PATH="/home/deploy/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 app_dir=/var/www/orca
 stamp=$(date -u +%Y%m%dT%H%M%SZ)
 test -f "$app_dir/.env"
